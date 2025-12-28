@@ -1,0 +1,179 @@
+{
+    "properties": [
+        {
+            "id": "prop1",
+            "type": "House",
+            "bedrooms": 3,
+            "price": 750000,
+            "tenure": "Freehold",
+            "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
+            "location": "Petts Wood Road, Petts Wood, Orpington BR5",
+            "picture": "images/prop1/main.jpg",
+            "images": [
+                "images/prop1/main.jpg",
+                "images/prop1/2.jpg",
+                "images/prop1/3.jpg",
+                "images/prop1/4.jpg",
+                "images/prop1/5.jpg",
+                "images/prop1/6.jpg"
+            ],
+            "url": "properties/prop1.html",
+            "added": {
+                "month": "October",
+                "day": 12,
+                "year": 2022
+            },
+            "dateAdded": "2022-10-12"
+        },
+        {
+            "id": "prop2",
+            "type": "Flat",
+            "bedrooms": 2,
+            "price": 399995,
+            "tenure": "Freehold",
+            "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room.",
+            "location": "Crofton Road Orpington BR6",
+            "picture": "images/prop2/main.jpg",
+            "images": [
+                "images/prop2/main.jpg",
+                "images/prop2/2.jpg",
+                "images/prop2/3.jpg",
+                "images/prop2/4.jpg",
+                "images/prop2/5.jpg",
+                "images/prop2/6.jpg"
+            ],
+            "url": "properties/prop2.html",
+            "added": {
+                "month": "September",
+                "day": 14,
+                "year": 2022
+            },
+            "dateAdded": "2022-09-14"
+        },
+        {
+            "id": "prop3",
+            "type": "House",
+            "bedrooms": 4,
+            "price": 650000,
+            "tenure": "Freehold",
+            "description": "A spacious 4-bedroom detached house perfect for growing families. Features a large garage, private driveway, and a recently renovated kitchen. Located near top-rated schools.",
+            "location": "High Street, Bromley BR1",
+            "picture": "images/prop3/main.jpg",
+            "images": [
+                "images/prop3/main.jpg",
+                "images/prop3/2.jpg",
+                "images/prop3/3.jpg",
+                "images/prop3/4.jpg",
+                "images/prop3/5.jpg",
+                "images/prop3/6.jpg"
+            ],
+            "url": "properties/prop3.html",
+            "added": {
+                "month": "January",
+                "day": 10,
+                "year": 2025
+            },
+            "dateAdded": "2025-01-10"
+        },
+        {
+            "id": "prop4",
+            "type": "Flat",
+            "bedrooms": 1,
+            "price": 275000,
+            "tenure": "Leasehold",
+            "description": "A charming 1-bedroom flat located in the city center. Ideal for professionals. Close to subway stations and shopping centers.",
+            "location": "Camden High St, London NW1",
+            "picture": "images/prop4/main.jpg",
+            "images": [
+                "images/prop4/main.jpg",
+                "images/prop4/2.jpg",
+                "images/prop4/3.jpg",
+                "images/prop4/4.jpg",
+                "images/prop4/5.jpg",
+                "images/prop4/6.jpg"
+            ],
+            "url": "properties/prop4.html",
+            "added": {
+                "month": "March",
+                "day": 5,
+                "year": 2025
+            },
+            "dateAdded": "2025-03-05"
+        },
+        {
+            "id": "prop5",
+            "type": "House",
+            "bedrooms": 5,
+            "price": 1100000,
+            "tenure": "Freehold",
+            "description": "Luxury 5-bedroom villa with a swimming pool and home cinema. Set in a quiet, exclusive neighborhood with excellent security.",
+            "location": "Dulwich Village, London SE21",
+            "picture": "images/prop5/main.jpg",
+            "images": [
+                "images/prop5/main.jpg",
+                "images/prop5/2.jpg",
+                "images/prop5/3.jpg",
+                "images/prop5/4.jpg",
+                "images/prop5/5.jpg",
+                "images/prop5/6.jpg"
+            ],
+            "url": "properties/prop5.html",
+            "added": {
+                "month": "May",
+                "day": 20,
+                "year": 2025
+            },
+            "dateAdded": "2025-05-20"
+        },
+        {
+            "id": "prop6",
+            "type": "Flat",
+            "bedrooms": 2,
+            "price": 450000,
+            "tenure": "Leasehold",
+            "description": "Bright and airy 2-bedroom apartment on the top floor. Features a wrap-around balcony with stunning city views.",
+            "location": "Greenwich Peninsula, London SE10",
+            "picture": "images/prop6/main.jpg",
+            "images": [
+                "images/prop6/main.jpg",
+                "images/prop6/2.jpg",
+                "images/prop6/3.jpg",
+                "images/prop6/4.jpg",
+                "images/prop6/5.jpg",
+                "images/prop6/6.jpg"
+            ],
+            "url": "properties/prop6.html",
+            "added": {
+                "month": "June",
+                "day": 15,
+                "year": 2025
+            },
+            "dateAdded": "2025-06-15"
+        },
+        {
+            "id": "prop7",
+            "type": "House",
+            "bedrooms": 3,
+            "price": 500000,
+            "tenure": "Freehold",
+            "description": "Cozy 3-bedroom cottage with period features including exposed beams and a wood-burning stove. Large rear garden.",
+            "location": "Chislehurst Rd, Orpington BR6",
+            "picture": "images/prop7/main.jpg",
+            "images": [
+                "images/prop7/main.jpg",
+                "images/prop7/2.jpg",
+                "images/prop7/3.jpg",
+                "images/prop7/4.jpg",
+                "images/prop7/5.jpg",
+                "images/prop7/6.jpg"
+            ],
+            "url": "properties/prop7.html",
+            "added": {
+                "month": "July",
+                "day": 1,
+                "year": 2025
+            },
+            "dateAdded": "2025-07-01"
+        }
+    ]
+}
