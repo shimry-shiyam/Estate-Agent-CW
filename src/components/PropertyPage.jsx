@@ -5,7 +5,7 @@ import 'react-tabs/style/react-tabs.css'; //Importing CSS for tabs
 import { FaArrowLeft } from 'react-icons/fa'; //Adding an arrow icon
 import data from '../data/properties.json';
 
-function PropertyPage() {
+function PropertyPage({ onAddToFavourites }) {
     const { id } = useParams(); //Get the ID from the URL
 
     //Handling data safety
@@ -24,7 +24,7 @@ function PropertyPage() {
                 <FaArrowLeft style={{ marginRight: '5px' }} /> Back to Search
             </Link>
 
-            {/* --- GALLERY SECTION (5% Marks) --- */}
+            {/* GALLERY SECTION */}
             <div style={{ marginBottom: '30px' }}>
                 <img
                     src={mainImage}
@@ -50,11 +50,21 @@ function PropertyPage() {
                 </div>
             </div>
 
-            {/* --- TABS SECTION (7% Marks) --- */}
+            {/*TABS SECTION*/}
             <div>
                 <h1>{property.type} in {property.location}</h1>
                 <h2 style={{ color: '#27ae60' }}>£{property.price.toLocaleString()}</h2>
 
+                {/* Adding a 'save to fav.' button */}
+                <button
+                    onClick={() => {
+                        onAddToFavourites(property);
+                        alert('Added to favourites');
+                    }}
+                    style={{ padding: '10px 20px', background: '#28a745', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', marginBottom: '20px' }}
+                >
+                    Add to Favourites
+                </button>
                 <Tabs style={{ marginTop: '20px' }}>
                     <TabList>
                         <Tab>Description</Tab>
