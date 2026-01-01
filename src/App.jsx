@@ -71,7 +71,7 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
     setFilteredProperties(results);
   };
 
-  // --- DRAG AND DROP LOGIC (VIVA: Native HTML5 API) ---
+  // DRAG AND DROP LOGIC
 
   // When you start dragging a property Card
   const handleDragStart = (e, property) => {
@@ -95,68 +95,77 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
   };
 
   return (
-    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <header style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <h1 style={{ color: '#2c3e50' }}>Estate Agent App</h1>
+    <div>
+      <header style={{ textAlign: 'center', marginBottom: '30px', padding: '20px', background: 'white', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
+        <h1 style={{ color: '#2c3e50', margin: 0 }}>Premium Estate Agents</h1>
       </header>
 
-      {/* GRID LAYOUT: Left (Search/Results) - Right (Favourites) */}
-      <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr', gap: '20px' }}>
+      {/* VIVA: "I used the 'app-container' class to control the responsive grid layout" */}
+      <div className="app-container">
 
         {/* --- LEFT COLUMN: Search & Results --- */}
         <div>
           <SearchForm onSearch={handleSearch} />
 
-          <h3>Results: {filteredProperties.length} Properties</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
+          <h3 style={{ marginTop: 0 }}>Results: {filteredProperties.length} Properties</h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
             {filteredProperties.map(property => (
               <div
                 key={property.id}
-                draggable // Enable dragging
-                onDragStart={(e) => handleDragStart(e, property)} // Start drag
-                style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden', cursor: 'grab' }}
+                className="property-card" // New CSS class for styling
+                draggable
+                onDragStart={(e) => handleDragStart(e, property)}
               >
-                <img src={property.picture} alt={property.type} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                <div style={{ padding: '10px' }}>
-                  <h4>{property.type} - £{property.price.toLocaleString()}</h4>
-                  <Link to={`/property/${property.id}`}>
-                    <button style={{ padding: '5px 10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '3px' }}>View</button>
-                  </Link>
-                  {/* Heart Button (Requirement: Add by button) */}
-                  <button
-                    onClick={() => onAdd(property)}
-                    style={{ marginLeft: '10px', padding: '5px 10px', background: '#28a745', color: 'white', border: 'none', borderRadius: '3px' }}
-                  >
-                    ♥ Save
-                  </button>
+                <img src={property.picture} alt={property.type} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <div style={{ padding: '15px' }}>
+                  <h3 style={{ margin: '0 0 10px 0', fontSize: '1.2rem' }}>{property.type}</h3>
+                  <h4 style={{ margin: '0 0 10px 0', color: '#27ae60' }}>£{property.price.toLocaleString()}</h4>
+                  <p style={{ color: '#666' }}>📍 {property.location}</p>
+
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                    <Link to={`/property/${property.id}`} style={{ flex: 1 }}>
+                      <button style={{ width: '100%', padding: '10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '5px' }}>View</button>
+                    </Link>
+                    <button
+                      onClick={() => onAdd(property)}
+                      style={{ flex: 1, padding: '10px', background: '#28a745', color: 'white', border: 'none', borderRadius: '5px' }}
+                    >
+                      ♥ Save
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* --- RIGHT COLUMN: Favourites Sidebar (Drop Zone) --- */}
+        {/* --- RIGHT COLUMN: Favourites Sidebar --- */}
         <div
-          onDragOver={handleDragOver} // Allow dropping here
-          onDrop={handleDrop}         // Handle the drop
-          style={{ background: '#f8f9fa', padding: '15px', borderRadius: '10px', border: '2px dashed #ccc', height: 'fit-content' }}
+          className="favourites-sidebar" // Class for mobile ordering
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+          style={{ background: 'white', padding: '20px', borderRadius: '10px', border: '2px dashed #ccc', height: 'fit-content' }}
         >
-          <h3 style={{ marginTop: 0 }}>Favourites (Drag Here)</h3>
+          <h3 style={{ marginTop: 0, color: '#d35400' }}>Favourites Zone</h3>
+          <p style={{ fontSize: '0.9rem', color: '#666' }}>Drag & Drop properties here</p>
 
-          {favourites.length === 0 && <p style={{ color: '#999' }}>Drag properties here to save them.</p>}
+          {favourites.length === 0 && <div style={{ padding: '20px', textAlign: 'center', background: '#f9f9f9', borderRadius: '5px', color: '#999' }}>List is empty</div>}
 
           {favourites.map(fav => (
-            <div key={fav.id} style={{ background: 'white', padding: '10px', marginBottom: '10px', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <div style={{ fontWeight: 'bold' }}>{fav.type}</div>
-                <div style={{ fontSize: '0.8rem' }}>£{fav.price.toLocaleString()}</div>
+            <div key={fav.id} style={{ background: '#fff', border: '1px solid #eee', padding: '10px', marginBottom: '10px', borderRadius: '5px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img src={fav.picture} style={{ width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover' }} />
+                <div>
+                  <div style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>{fav.type}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#27ae60' }}>£{fav.price.toLocaleString()}</div>
+                </div>
               </div>
-              {/* Remove Button */}
               <button
                 onClick={() => onRemove(fav.id)}
-                style={{ background: 'red', color: 'white', border: 'none', borderRadius: '50%', width: '25px', height: '25px', cursor: 'pointer' }}
+                style={{ background: '#ffeded', color: '#dc3545', border: '1px solid #ffcccc', borderRadius: '50%', width: '25px', height: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                X
+                ✕
               </button>
             </div>
           ))}
@@ -164,9 +173,9 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
           {favourites.length > 0 && (
             <button
               onClick={onClear}
-              style={{ width: '100%', marginTop: '10px', padding: '10px', background: '#dc3545', color: 'white', border: 'none', borderRadius: '5px' }}
+              style={{ width: '100%', marginTop: '15px', padding: '10px', background: '#e74c3c', color: 'white', border: 'none', borderRadius: '5px' }}
             >
-              Clear Favourites
+              Clear List
             </button>
           )}
         </div>
