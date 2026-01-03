@@ -65,7 +65,7 @@ function SearchForm({ onSearch }) {
             {/* Price Slider */}
             <div style={{ marginTop: '20px', marginBottom: '20px' }}>
                 <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>
-                    Price Range: £{priceRange[0].toLocaleString()} - £{priceRange[1].toLocaleString()}
+                    Price Range: LKR{priceRange[0].toLocaleString()} - LKR{priceRange[1].toLocaleString()}
                 </label>
                 <div style={{ padding: '0 10px' }}>
                     <Slider

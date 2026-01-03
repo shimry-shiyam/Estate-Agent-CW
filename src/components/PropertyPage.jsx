@@ -27,7 +27,8 @@ function PropertyPage({ onAddToFavourites }) {
             {/* GALLERY SECTION */}
             <div style={{ marginBottom: '30px' }}>
                 <img
-                    src={mainImage}
+                    // FIX: Add the Base URL
+                    src={`${import.meta.env.BASE_URL}${mainImage}`}
                     alt={property.type}
                     style={{ width: '100%', height: '500px', objectFit: 'cover', borderRadius: '10px' }}
                 />
@@ -37,9 +38,10 @@ function PropertyPage({ onAddToFavourites }) {
                     {property.images && property.images.map((img, index) => (
                         <img
                             key={index}
-                            src={img}
+                            // FIX: Add the Base URL
+                            src={`${import.meta.env.BASE_URL}${img}`}
                             alt="thumbnail"
-                            onClick={() => setMainImage(img)} // Clicking updates the main image
+                            onClick={() => setMainImage(img)}
                             style={{
                                 width: '100px', height: '80px', objectFit: 'cover',
                                 cursor: 'pointer', borderRadius: '5px',
@@ -53,7 +55,7 @@ function PropertyPage({ onAddToFavourites }) {
             {/*TABS SECTION*/}
             <div>
                 <h1>{property.type} in {property.location}</h1>
-                <h2 style={{ color: '#27ae60' }}>£{property.price.toLocaleString()}</h2>
+                <h2 style={{ color: '#27ae60' }}>LKR{property.price.toLocaleString()}</h2>
 
                 {/* Adding a 'save to fav.' button */}
                 <button

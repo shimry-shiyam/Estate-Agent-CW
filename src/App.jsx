@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Estate-Agent-CW">
       <Routes>
         <Route
           path="/"
@@ -117,10 +117,15 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
                 draggable
                 onDragStart={(e) => handleDragStart(e, property)}
               >
-                <img src={property.picture} alt={property.type} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <img
+                  // FIX: Prepend the Base URL so it always finds the image
+                  src={`${import.meta.env.BASE_URL}${property.picture}`}
+                  alt={property.type}
+                  style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                />
                 <div style={{ padding: '15px' }}>
                   <h3 style={{ margin: '0 0 10px 0', fontSize: '1.2rem' }}>{property.type}</h3>
-                  <h4 style={{ margin: '0 0 10px 0', color: '#27ae60' }}>£{property.price.toLocaleString()}</h4>
+                  <h4 style={{ margin: '0 0 10px 0', color: '#27ae60' }}>LKR{property.price.toLocaleString()}</h4>
                   <p style={{ color: '#666' }}>📍 {property.location}</p>
 
                   <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
@@ -131,7 +136,7 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
                       onClick={() => onAdd(property)}
                       style={{ flex: 1, padding: '10px', background: '#28a745', color: 'white', border: 'none', borderRadius: '5px' }}
                     >
-                      ♥ Save
+                      Save
                     </button>
                   </div>
                 </div>
@@ -155,10 +160,14 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
           {favourites.map(fav => (
             <div key={fav.id} style={{ background: '#fff', border: '1px solid #eee', padding: '10px', marginBottom: '10px', borderRadius: '5px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img src={fav.picture} style={{ width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover' }} />
+                <img
+                  // FIX: Prepend the Base URL here too
+                  src={`${import.meta.env.BASE_URL}${fav.picture}`}
+                  style={{ width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover' }}
+                />
                 <div>
                   <div style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>{fav.type}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#27ae60' }}>£{fav.price.toLocaleString()}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#27ae60' }}>LKR{fav.price.toLocaleString()}</div>
                 </div>
               </div>
               <button
