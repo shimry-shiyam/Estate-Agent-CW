@@ -20,7 +20,6 @@ function SearchForm({ onSearch }) {
     return (
         <form onSubmit={handleSubmit} style={{
             padding: '20px',
-
             backgroundColor: 'rgb(236, 230, 230)',
             borderRadius: '10px',
             marginBottom: '30px'
@@ -30,8 +29,10 @@ function SearchForm({ onSearch }) {
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
                 {/* Type Dropdown */}
                 <div style={{ flex: 1 }}>
-                    <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Type</label>
+                    {/* FIX: htmlFor connects to the ID below */}
+                    <label htmlFor="typeSelect" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Type</label>
                     <select
+                        id="typeSelect" // FIX: Added ID
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                         style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
@@ -44,8 +45,10 @@ function SearchForm({ onSearch }) {
 
                 {/* Bedrooms Dropdown */}
                 <div style={{ flex: 1 }}>
-                    <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Min Bedrooms</label>
+                    {/* FIX: htmlFor connects to the ID below */}
+                    <label htmlFor="bedSelect" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Min Bedrooms</label>
                     <select
+                        id="bedSelect" // FIX: Added ID
                         value={bedrooms}
                         onChange={(e) => setBedrooms(e.target.value)}
                         style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
