@@ -5,12 +5,12 @@ import SearchForm from './components/SearchForm';
 import PropertyPage from './components/PropertyPage';
 
 function App() {
-  // 1. STATE: We keep favourites here so it persists across pages
+  // Favourites
   const [favourites, setFavourites] = useState([]);
 
-  // 2. HELPER: Add to favourites (Prevent Duplicates)
+  // Preventing duplication
   const handleAddToFavourites = (property) => {
-    // Check if it already exists
+    // Checking if it already exists
     if (!favourites.some(fav => fav.id === property.id)) {
       setFavourites([...favourites, property]);
     } else {
@@ -18,12 +18,12 @@ function App() {
     }
   };
 
-  // 3. HELPER: Remove from favourites
+  // Remove from favourites
   const handleRemoveFromFavourites = (id) => {
     setFavourites(favourites.filter(fav => fav.id !== id));
   };
 
-  // 4. HELPER: Clear all
+  // Clearing all
   const handleClearFavourites = () => {
     setFavourites([]);
   };
@@ -55,7 +55,7 @@ function App() {
   );
 }
 
-// --- SEARCH PAGE COMPONENT (Now with Drag & Drop) ---
+// Search page comp with drag and drop
 function SearchPage({ favourites, onAdd, onRemove, onClear }) {
   const initialData = data.properties ? data.properties : data;
   const [allProperties] = useState(initialData);
@@ -73,18 +73,18 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
 
   // DRAG AND DROP LOGIC
 
-  // When you start dragging a property Card
+  // Dragging property card
   const handleDragStart = (e, property) => {
     e.dataTransfer.setData("propertyId", property.id);
     e.dataTransfer.setData("source", "results"); // Mark where it came from
   };
 
-  // When you drag over the Favourites Box (Must prevent default to allow dropping)
+  // When you drag over the Favourites Box, preventing default to allow dropping
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
-  // When you DROP into the Favourites Box
+  // Drop into Fav. box
   const handleDrop = (e) => {
     e.preventDefault();
     const propertyId = e.dataTransfer.getData("propertyId");
@@ -100,10 +100,10 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
         <h1 style={{ color: '#2c3e50', margin: 0 }}>Premium Estate Agents</h1>
       </header>
 
-      {/* VIVA: "I used the 'app-container' class to control the responsive grid layout" */}
+      {/*'app-container' class to control the responsive grid layout */}
       <div className="app-container">
 
-        {/* --- LEFT COLUMN: Search & Results --- */}
+        {/* Search & Result */}
         <div>
           <SearchForm onSearch={handleSearch} />
 
@@ -113,19 +113,19 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
             {filteredProperties.map(property => (
               <div
                 key={property.id}
-                className="property-card" // New CSS class for styling
+                className="property-card" // CSS class for styling
                 draggable
                 onDragStart={(e) => handleDragStart(e, property)}
               >
                 <img
-                  // FIX: Prepend the Base URL so it always finds the image
+                  // fix for image not showing up: Prepend the Base URL
                   src={`${import.meta.env.BASE_URL}${property.picture}`}
                   alt={property.type}
                   style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                 />
                 <div style={{ padding: '15px' }}>
                   <h3 style={{ margin: '0 0 10px 0', fontSize: '1.2rem' }}>{property.type}</h3>
-                  <h4 style={{ margin: '0 0 10px 0', color: '#27ae60' }}>LKR{property.price.toLocaleString()}</h4>
+                  <h4 style={{ margin: '0 0 10px 0', color: '#27ae60' }}>LKR {property.price.toLocaleString()}</h4>
                   <p style={{ color: '#666' }}>📍 {property.location}</p>
 
                   <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
@@ -145,7 +145,7 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
           </div>
         </div>
 
-        {/* --- RIGHT COLUMN: Favourites Sidebar --- */}
+        {/* Favourites Sidebar*/}
         <div
           className="favourites-sidebar" // Class for mobile ordering
           onDragOver={handleDragOver}
@@ -161,13 +161,13 @@ function SearchPage({ favourites, onAdd, onRemove, onClear }) {
             <div key={fav.id} style={{ background: '#fff', border: '1px solid #eee', padding: '10px', marginBottom: '10px', borderRadius: '5px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <img
-                  // FIX: Prepend the Base URL here too
+                  // fix for image not showing up: Prepend the Base URL
                   src={`${import.meta.env.BASE_URL}${fav.picture}`}
                   style={{ width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover' }}
                 />
                 <div>
                   <div style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>{fav.type}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#27ae60' }}>LKR{fav.price.toLocaleString()}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#27ae60' }}>LKR {fav.price.toLocaleString()}</div>
                 </div>
               </div>
               <button

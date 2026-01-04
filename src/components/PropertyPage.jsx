@@ -55,7 +55,7 @@ function PropertyPage({ onAddToFavourites }) {
             {/*TABS SECTION*/}
             <div>
                 <h1>{property.type} in {property.location}</h1>
-                <h2 style={{ color: '#27ae60' }}>LKR{property.price.toLocaleString()}</h2>
+                <h2 style={{ color: '#27ae60' }}>LKR {property.price.toLocaleString()}</h2>
 
                 {/* Adding a 'save to fav.' button */}
                 <button

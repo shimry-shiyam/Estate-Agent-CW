@@ -1,17 +1,14 @@
-/* Import a professional font (Open Sans) - Aesthetics Mark */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  /* Consistent Font */
+  font-family: 'Montserrat', sans-serif;
   background-color: #f4f7f6;
-  /* Light grey background for professional look */
+  /* Text colour */
   color: #333;
 }
 
-/* --- RESPONSIVE LAYOUT (8% Marks) --- */
-/* Default (Desktop): Grid with Sidebar */
+/* Default: Grid with Sidebar */
 .app-container {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -22,14 +19,14 @@ body {
   padding: 20px;
 }
 
-/* Mobile/Tablet Layout (The "Hand-written media query" required by brief) */
+/* Mobile/Tablet Layout*/
 @media (max-width: 768px) {
   .app-container {
     grid-template-columns: 1fr;
     /* Stack everything in 1 column */
   }
 
-  /* Order: Put Favourites at the bottom on mobile */
+  /* Order: Putting Favourites at the bottom on mobile */
   .favourites-sidebar {
     order: 2;
   }
@@ -37,9 +34,9 @@ body {
 
 /* Property Card Styling */
 .property-card {
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 8px;
+  border: 3px solid #bac5cd;
+  background: rgb(240, 250, 255);
+  border-radius: 12px;
   overflow: hidden;
   transition: transform 0.2s;
   /* Subtle animation */

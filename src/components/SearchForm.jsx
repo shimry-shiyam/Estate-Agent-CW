@@ -29,10 +29,10 @@ function SearchForm({ onSearch }) {
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
                 {/* Type Dropdown */}
                 <div style={{ flex: 1 }}>
-                    {/* FIX: htmlFor connects to the ID below */}
+                    {/* htmlFor connects to the ID below */}
                     <label htmlFor="typeSelect" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Type</label>
                     <select
-                        id="typeSelect" // FIX: Added ID
+                        id="typeSelect" // Added ID
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                         style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
@@ -45,10 +45,10 @@ function SearchForm({ onSearch }) {
 
                 {/* Bedrooms Dropdown */}
                 <div style={{ flex: 1 }}>
-                    {/* FIX: htmlFor connects to the ID below */}
+                    {/* htmlFor connects to the ID below */}
                     <label htmlFor="bedSelect" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Min Bedrooms</label>
                     <select
-                        id="bedSelect" // FIX: Added ID
+                        id="bedSelect" // Added ID
                         value={bedrooms}
                         onChange={(e) => setBedrooms(e.target.value)}
                         style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
@@ -65,7 +65,7 @@ function SearchForm({ onSearch }) {
             {/* Price Slider */}
             <div style={{ marginTop: '20px', marginBottom: '20px' }}>
                 <label style={{ display: 'block', marginBottom: '10px', fontWeight: 'bold' }}>
-                    Price Range: LKR{priceRange[0].toLocaleString()} - LKR{priceRange[1].toLocaleString()}
+                    Price Range: LKR {priceRange[0].toLocaleString()} - LKR {priceRange[1].toLocaleString()}
                 </label>
                 <div style={{ padding: '0 10px' }}>
                     <Slider
